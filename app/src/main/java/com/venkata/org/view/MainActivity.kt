@@ -1,4 +1,4 @@
-package com.venkata.org
+package com.venkata.org.view
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -11,20 +11,23 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import com.venkata.org.ui.theme.CountriesAppSTheme
+import com.venkata.org.view.ui.theme.CountriesAppSTheme
+import dagger.hilt.android.AndroidEntryPoint
 
+/**
+ * Launcher Activity of the application
+ * Main entry point of the application.
+ * Annotated with [@AndroidEntryPoint] to enable Hilt dependency injection.
+ */
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
             CountriesAppSTheme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting(
-                        name = "Android",
-                        modifier = Modifier.padding(innerPadding)
-                    )
-                }
+                // Loads the composable CountriesScreen screen
+                CountriesScreen()
             }
         }
     }
