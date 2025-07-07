@@ -1,4 +1,4 @@
-package com.venkata.org.ui.theme
+package com.venkata.org.view.ui.theme
 
 import androidx.compose.ui.graphics.Color
 
